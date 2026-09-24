@@ -4,44 +4,60 @@
   <title>Happy Birthday ❤️</title>
   <style>
     body{
-      margin:0;background:#ff4d6d;
-      color:white;font-family:Arial;
-      display:flex;justify-content:center;
-      align-items:center;height:100vh;
+      margin:0;
+      font-family:Arial;
+      background:#ff4d6d;
+      color:white;
       text-align:center;
     }
-    h1{font-size:42px;}
+    .page{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+    }
+    #surprise{
+      display:none;
+    }
     button{
-      padding:12px 24px;border:none;
-      border-radius:30px;font-size:18px;
+      padding:15px 30px;
+      font-size:18px;
+      border:none;
+      border-radius:30px;
+      cursor:pointer;
     }
   </style>
 </head>
-  <div>
-    <h1>Happy Birthday, My Love ❤️</h1>
-    <p>You make every day beautiful.</p>
-    
-  </div>
 <body>
 
-<button onclick="openGift()">Open Gift 🎁</button>
+  <!-- Music -->
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
-<audio id="song" src="music.mp3"></audio>
+  <!-- First Screen -->
+  <section class="page" id="home">
+    <h1>Happy Birthday ❤️</h1>
+    <button onclick="startSurprise()">Open Gift 🎁</button>
+  </section>
 
-<script>
-async function openGift() {
-  const song = document.getElementById("song");
+  <!-- Surprise Screen -->
+  <section class="page" id="surprise">
+    <h1>I LOVE YOU ❤️</h1>
+    <h2>Happy Birthday My Princess ✨</h2>
+    <p>May all your dreams come true.</p>
+  </section>
 
-  try {
-    await song.play();          // Starts because it's from a button click
-    setTimeout(() => {
-      window.location.href = "surprise.html";
-    }, 300);
-  } catch (e) {
-    alert("Tap again to play music.");
-  }
-}
-</script>
+  <script>
+    function startSurprise(){
+      const music = document.getElementById("music");
+      music.play();
+
+      document.getElementById("home").style.display = "none";
+      document.getElementById("surprise").style.display = "flex";
+    }
+  </script>
 
 </body>
 </html>
