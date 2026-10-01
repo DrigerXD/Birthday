@@ -3,146 +3,1428 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday ❤️</title>
+
+<title>Happy Birthday My Love ❤️</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Poppins', sans-serif;
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-  overflow:hidden;
-  background:linear-gradient(135deg,#ff4d6d,#ff758f,#ff8fab);
-  color:white;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Floating hearts */
-.hearts{
-  position:fixed;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  z-index:0;
+body {
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+
+    color: white;
+
+    background:
+        radial-gradient(circle at top left, #ff8fab55, transparent 35%),
+        radial-gradient(circle at bottom right, #ff4f8150, transparent 35%),
+        linear-gradient(135deg, #250018, #5c002c, #210014);
+
+    position: relative;
 }
 
-.heart{
-  position:absolute;
-  color:#fff;
-  font-size:20px;
-  animation:float 8s linear infinite;
-  opacity:.7;
+/* =========================
+   FLOATING BACKGROUND HEARTS
+========================= */
+
+.background-hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
 
-@keyframes float{
-  0%{transform:translateY(100vh) scale(.5);}
-  100%{transform:translateY(-120px) scale(1.4);}
+.background-hearts span {
+    position: absolute;
+    bottom: -60px;
+
+    font-size: 20px;
+
+    opacity: 0.35;
+
+    animation: floatHeart linear infinite;
 }
 
-.page{
-  position:relative;
-  z-index:2;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
+.background-hearts span:nth-child(1) {
+    left: 5%;
+    animation-duration: 12s;
+    animation-delay: 0s;
 }
 
-h1{
-  font-size:3rem;
-  text-shadow:0 0 20px rgba(255,255,255,.6);
+.background-hearts span:nth-child(2) {
+    left: 15%;
+    animation-duration: 16s;
+    animation-delay: 2s;
 }
 
-h2{
-  font-size:1.4rem;
-  margin:15px 0;
-  font-weight:300;
+.background-hearts span:nth-child(3) {
+    left: 27%;
+    animation-duration: 13s;
+    animation-delay: 5s;
 }
 
-button{
-  margin-top:30px;
-  padding:15px 35px;
-  border:none;
-  border-radius:50px;
-  background:white;
-  color:#ff4d6d;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.3s;
+.background-hearts span:nth-child(4) {
+    left: 40%;
+    animation-duration: 18s;
+    animation-delay: 1s;
 }
 
-button:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 20px white;
+.background-hearts span:nth-child(5) {
+    left: 52%;
+    animation-duration: 14s;
+    animation-delay: 7s;
 }
 
-#surprise{
-  display:none;
+.background-hearts span:nth-child(6) {
+    left: 65%;
+    animation-duration: 17s;
+    animation-delay: 3s;
 }
 
-img{
-  width:240px;
-  border-radius:20px;
-  margin-bottom:20px;
-  box-shadow:0 0 25px rgba(255,255,255,.5);
+.background-hearts span:nth-child(7) {
+    left: 78%;
+    animation-duration: 13s;
+    animation-delay: 6s;
 }
+
+.background-hearts span:nth-child(8) {
+    left: 90%;
+    animation-duration: 19s;
+    animation-delay: 4s;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .4;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg)
+            scale(1.3);
+
+        opacity: 0;
+    }
+}
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page {
+    min-height: 100vh;
+
+    display: none;
+
+    position: relative;
+    z-index: 2;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 35px 20px;
+}
+
+.page.active {
+    display: flex;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.eyebrow {
+    font-size: 13px;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    color: #ffb8ca;
+
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(55px, 10vw, 100px);
+
+    line-height: 1;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px #ff7fa5,
+        0 0 25px #ff477c;
+}
+
+.subtitle {
+    max-width: 650px;
+
+    margin: 20px auto;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #ffdce6;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff477e,
+            #ff7fa5
+        );
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px #ff477c55,
+        inset 0 0 10px #ffffff22;
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 12px 35px #ff477c88,
+        inset 0 0 15px #ffffff33;
+}
+
+.btn:active {
+    transform: scale(.96);
+}
+
+/* =========================
+   HOME PAGE
+========================= */
+
+.home-heart {
+    font-size: 65px;
+
+    margin-bottom: 15px;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.home-message {
+    max-width: 620px;
+
+    color: #ffe5ec;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    margin: 15px 0 30px;
+}
+
+/* =========================
+   PHOTO PAGE
+========================= */
+
+.photo-card {
+    width: min(90vw, 430px);
+
+    padding: 15px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff18,
+            #ffffff08
+        );
+
+    border: 1px solid #ffffff25;
+
+    box-shadow:
+        0 20px 70px #00000066;
+
+    backdrop-filter: blur(12px);
+
+    margin: 15px 0 25px;
+}
+
+.photo-card img {
+    display: block;
+
+    width: 100%;
+
+    border-radius: 18px;
+
+    object-fit: cover;
+
+    max-height: 550px;
+}
+
+.photo-caption {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 32px;
+
+    color: #ffc1d2;
+
+    margin-top: 15px;
+}
+
+.love-message {
+    max-width: 650px;
+
+    color: #ffe3eb;
+
+    line-height: 1.9;
+
+    margin-bottom: 25px;
+}
+
+/* =========================
+   BOW & ARROW PAGE
+========================= */
+
+#arrowPage {
+    overflow: hidden;
+}
+
+.archery-area {
+
+    position: relative;
+
+    width: min(94vw, 600px);
+
+    height: 330px;
+
+    margin: 20px auto;
+
+    touch-action: none;
+
+    user-select: none;
+}
+
+/* Bow */
+
+.bow-container {
+
+    position: absolute;
+
+    left: 70px;
+
+    top: 80px;
+
+    width: 220px;
+
+    height: 170px;
+}
+
+.bow {
+
+    position: absolute;
+
+    left: 35px;
+
+    top: 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 180px;
+
+    font-weight: 100;
+
+    color: white;
+
+    transform: scaleX(.7);
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #ff9cbd;
+
+    transition: transform .1s;
+}
+
+/* Bow string */
+
+.bow-string {
+
+    position: absolute;
+
+    width: 145px;
+
+    height: 2px;
+
+    background: white;
+
+    left: 65px;
+
+    top: 85px;
+
+    transform-origin: left center;
+
+    box-shadow: 0 0 8px white;
+}
+
+/* Arrow */
+
+.arrow {
+
+    position: absolute;
+
+    left: 70px;
+
+    top: 70px;
+
+    font-size: 45px;
+
+    cursor: grab;
+
+    z-index: 5;
+
+    filter:
+        drop-shadow(0 0 5px white)
+        drop-shadow(0 0 12px #ff5d91);
+
+    touch-action: none;
+
+    transition: filter .2s;
+}
+
+.arrow:hover {
+    filter:
+        drop-shadow(0 0 7px white)
+        drop-shadow(0 0 18px #ff5d91);
+}
+
+.arrow.dragging {
+    cursor: grabbing;
+}
+
+/* Target */
+
+.target {
+
+    position: absolute;
+
+    right: 35px;
+
+    top: 100px;
+
+    width: 100px;
+
+    height: 100px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 70px;
+
+    cursor: default;
+
+    animation: targetPulse 1.2s infinite;
+}
+
+@keyframes targetPulse {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+/* Hit animation */
+
+.target.hit {
+    animation: heartHit .7s ease forwards;
+}
+
+@keyframes heartHit {
+
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.5);
+    }
+
+    70% {
+        transform: scale(.7);
+    }
+
+    100% {
+        transform: scale(1.3);
+    }
+}
+
+.hint {
+
+    margin-top: 5px;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    color: #ffc6d5;
+}
+
+/* =========================
+   VIDEO PAGE
+========================= */
+
+.video-container {
+
+    width: min(100%, 950px);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+
+    margin: 25px auto;
+}
+
+.video-card {
+
+    padding: 12px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff16,
+            #ffffff07
+        );
+
+    border: 1px solid #ffffff22;
+
+    box-shadow:
+        0 20px 60px #00000055;
+
+    backdrop-filter: blur(12px);
+}
+
+.video-card video {
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    border-radius: 15px;
+
+    background: #090006;
+}
+
+.video-title {
+
+    margin-top: 12px;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 28px;
+
+    color: #ffc0d1;
+}
+
+/* =========================
+   HEART BURST
+========================= */
+
+.burst-heart {
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    pointer-events: none;
+
+    z-index: 9999;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 700px) {
+
+    .video-container {
+        grid-template-columns: 1fr;
+    }
+
+    .archery-area {
+        height: 280px;
+    }
+
+    .bow-container {
+        left: 5px;
+
+        transform: scale(.85);
+
+        transform-origin: left center;
+    }
+
+    .target {
+        right: 0;
+
+        top: 90px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .home-message {
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 420px) {
+
+    .archery-area {
+        transform: scale(.92);
+
+        transform-origin: center;
+    }
+
+    .target {
+        right: -5px;
+    }
+
+    .video-card {
+        padding: 8px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="hearts" id="hearts"></div>
 
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+<!-- =====================================================
+     FLOATING HEART BACKGROUND
+===================================================== -->
 
-<section class="page" id="home">
-  <div style="font-size:55px;">❤️</div>
-  <h1>Happy Birthday</h1>
-  <h2>To The Love Of My Life</h2>
-  <p style="max-width:300px;opacity:.9;">
-    Every heartbeat of mine has your name in it.
-  </p>
+<div class="background-hearts">
 
-  <button onclick="startSurprise()">Open My Heart 🎁</button>
+    <span>❤️</span>
+    <span>💕</span>
+    <span>💗</span>
+    <span>💖</span>
+    <span>💘</span>
+    <span>❤️</span>
+    <span>💞</span>
+    <span>💓</span>
+
+</div>
+
+
+<!-- =====================================================
+     PAGE 1 — HOME
+===================================================== -->
+
+<section class="page active" id="home">
+
+    <div class="home-heart">
+        ❤️
+    </div>
+
+    <div class="eyebrow">
+        A little surprise for you
+    </div>
+
+    <h1>
+        Happy Birthday
+    </h1>
+
+    <h1 style="font-size: clamp(48px, 9vw, 85px);">
+        My Love 💕
+    </h1>
+
+    <p class="home-message">
+
+        Today is all about celebrating you.
+        You make ordinary moments feel special,
+        and I hope this little surprise makes
+        your day a little more beautiful. ❤️
+
+    </p>
+
+    <button class="btn" onclick="showPage('photoPage')">
+        Open My Heart 💌
+    </button>
+
 </section>
 
-<section class="page" id="surprise">
-  <img src="love.jpg" alt="Our Photo">
 
-  <h1>I LOVE YOU ❤️</h1>
-  <h2>Happy Birthday, My Princess</h2>
-  <p>May your smile stay this beautiful forever.</p>
+<!-- =====================================================
+     PAGE 2 — PHOTO + MESSAGE
+===================================================== -->
+
+<section class="page" id="photoPage">
+
+    <div class="eyebrow">
+        A memory worth keeping
+    </div>
+
+    <h1 style="font-size: clamp(50px, 9vw, 80px);">
+        My Favourite Person
+    </h1>
+
+    <div class="photo-card">
+
+        <img
+            src="love.jpg"
+            alt="Our favourite memory"
+        >
+
+        <div class="photo-caption">
+            My favourite person ♡
+        </div>
+
+    </div>
+
+    <p class="love-message">
+
+        Out of all the people in this world,
+        I'm really grateful that our paths crossed.
+        ❤️
+
+        <br><br>
+
+        Here's to more memories,
+        more smiles,
+        more silly moments,
+        and many more birthdays together. 💕
+
+    </p>
+
+    <button class="btn" onclick="showPage('arrowPage')">
+        There's More, My Love 💘
+    </button>
+
 </section>
+
+
+<!-- =====================================================
+     PAGE 3 — INTERACTIVE BOW & ARROW
+===================================================== -->
+
+<section class="page" id="arrowPage">
+
+    <div class="eyebrow">
+        One last surprise...
+    </div>
+
+    <h1 style="font-size: clamp(45px, 8vw, 70px);">
+        Shoot My Heart 💘
+    </h1>
+
+    <p class="subtitle">
+        Pull the arrow back and release it ❤️
+    </p>
+
+
+    <div class="archery-area" id="archeryArea">
+
+        <!-- BOW -->
+
+        <div class="bow-container" id="bowContainer">
+
+            <div class="bow">
+                )
+            </div>
+
+            <div
+                class="bow-string"
+                id="bowString">
+            </div>
+
+            <div
+                class="arrow"
+                id="arrow">
+                ➜
+            </div>
+
+        </div>
+
+
+        <!-- HEART TARGET -->
+
+        <button
+            class="target"
+            id="target"
+            aria-label="Heart target">
+
+            ❤️
+
+        </button>
+
+    </div>
+
+
+    <p
+        id="shootHint"
+        class="hint">
+
+        DRAG THE ARROW BACK ↩️
+
+    </p>
+
+
+    <button
+        class="btn"
+        id="continueBtn"
+        onclick="goToVideos()"
+        hidden>
+
+        Unlock Our Memories 🎬
+
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 4 — VIDEOS
+===================================================== -->
+
+<section class="page" id="videoPage">
+
+    <div class="eyebrow">
+        Our little memories
+    </div>
+
+    <h1 style="font-size: clamp(50px, 9vw, 80px);">
+        Just For You ❤️
+    </h1>
+
+    <p class="subtitle">
+
+        Two little memories,
+        because one could never be enough. 💕
+
+    </p>
+
+
+    <div class="video-container">
+
+
+        <!-- VIDEO 1 -->
+
+        <div class="video-card">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="video1.mp4"
+                    type="video/mp4">
+
+                Your browser does not support video playback.
+
+            </video>
+
+            <div class="video-title">
+                Memory One ❤️
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 2 -->
+
+        <div class="video-card">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="video2.mp4"
+                    type="video/mp4">
+
+                Your browser does not support video playback.
+
+            </video>
+
+            <div class="video-title">
+                Memory Two 💕
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <p
+        style="
+        margin-top:25px;
+        color:#ffcbd8;
+        font-size:14px;
+        ">
+
+        Happy Birthday once again ❤️
+
+    </p>
+
+</section>
+
 
 <script>
-// Floating hearts
-const hearts = document.getElementById("hearts");
 
-for(let i=0;i<30;i++){
-  let h = document.createElement("div");
-  h.className = "heart";
-  h.innerHTML = Math.random()>0.5 ? "❤" : "💖";
-  h.style.left = Math.random()*100 + "%";
-  h.style.animationDuration = (5+Math.random()*5)+"s";
-  h.style.fontSize = (15+Math.random()*20)+"px";
-  h.style.animationDelay = Math.random()*5+"s";
-  hearts.appendChild(h);
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function showPage(pageId) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+
+            page.classList.remove("active");
+
+        });
+
+    const page =
+        document.getElementById(pageId);
+
+    page.classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
-// Button
-function startSurprise(){
-  document.getElementById("music").play();
-  document.getElementById("home").style.display="none";
-  document.getElementById("surprise").style.display="flex";
+
+/* =====================================================
+   INTERACTIVE BOW & ARROW
+===================================================== */
+
+const arrow =
+    document.getElementById("arrow");
+
+const archeryArea =
+    document.getElementById("archeryArea");
+
+const bow =
+    document.querySelector(".bow");
+
+const bowString =
+    document.getElementById("bowString");
+
+const target =
+    document.getElementById("target");
+
+const hint =
+    document.getElementById("shootHint");
+
+const continueBtn =
+    document.getElementById("continueBtn");
+
+
+let dragging = false;
+let shot = false;
+
+
+/* =========================
+   START DRAG
+========================= */
+
+arrow.addEventListener(
+    "pointerdown",
+    startDrag
+);
+
+
+function startDrag(e) {
+
+    if (shot) return;
+
+    dragging = true;
+
+    arrow.classList.add(
+        "dragging"
+    );
+
+    arrow.setPointerCapture(
+        e.pointerId
+    );
+
 }
+
+
+/* =========================
+   DRAG ARROW
+========================= */
+
+arrow.addEventListener(
+    "pointermove",
+    dragArrow
+);
+
+
+function dragArrow(e) {
+
+    if (!dragging || shot) return;
+
+
+    const rect =
+        archeryArea.getBoundingClientRect();
+
+
+    let x =
+        e.clientX - rect.left;
+
+    let y =
+        e.clientY - rect.top;
+
+
+    /* Keep arrow inside safe area */
+
+    const minX = 20;
+    const maxX = 150;
+
+
+    x =
+        Math.max(
+            minX,
+            Math.min(maxX, x)
+        );
+
+
+    /* Keep arrow aligned */
+
+    y = 145;
+
+
+    arrow.style.left =
+        x + "px";
+
+    arrow.style.top =
+        y + "px";
+
+
+    /* Calculate pull */
+
+    const pull =
+        (150 - x) / 130;
+
+
+    /* Bend bow */
+
+    bow.style.transform =
+        `scaleX(${0.7 + pull * 0.25})`;
+
+
+    /* Pull string */
+
+    bowString.style.width =
+        (145 - pull * 45) + "px";
+
+
+    /* Hint */
+
+    if (pull > .65) {
+
+        hint.textContent =
+            "RELEASE! 💘";
+
+    } else {
+
+        hint.textContent =
+            "KEEP PULLING...";
+
+    }
+
+}
+
+
+/* =========================
+   RELEASE ARROW
+========================= */
+
+arrow.addEventListener(
+    "pointerup",
+    releaseArrow
+);
+
+arrow.addEventListener(
+    "pointercancel",
+    releaseArrow
+);
+
+
+function releaseArrow(e) {
+
+    if (!dragging || shot) return;
+
+
+    dragging = false;
+
+    arrow.classList.remove(
+        "dragging"
+    );
+
+
+    const arrowX =
+        parseFloat(
+            arrow.style.left || 70
+        );
+
+
+    /* Not pulled far enough */
+
+    if (arrowX > 95) {
+
+        arrow.style.left =
+            "70px";
+
+        arrow.style.top =
+            "70px";
+
+
+        bow.style.transform =
+            "scaleX(.7)";
+
+        bowString.style.width =
+            "145px";
+
+
+        hint.textContent =
+            "Pull the arrow farther back! ❤️";
+
+        return;
+    }
+
+
+    shootArrow();
+
+}
+
+
+/* =====================================================
+   SHOOT ARROW
+===================================================== */
+
+function shootArrow() {
+
+    shot = true;
+
+
+    hint.textContent =
+        "LOVE FOUND ITS TARGET! 💖";
+
+
+    arrow.style.pointerEvents =
+        "none";
+
+
+    /* Get target position */
+
+    const targetRect =
+        target.getBoundingClientRect();
+
+    const areaRect =
+        archeryArea.getBoundingClientRect();
+
+
+    const targetX =
+        targetRect.left -
+        areaRect.left +
+        targetRect.width / 2;
+
+
+    const targetY =
+        targetRect.top -
+        areaRect.top +
+        targetRect.height / 2;
+
+
+    /* Arrow animation */
+
+    arrow.animate(
+
+        [
+            {
+                left: "70px",
+                top: "70px",
+                transform:
+                    "rotate(0deg)"
+            },
+
+            {
+                left:
+                    targetX + "px",
+
+                top:
+                    targetY + "px",
+
+                transform:
+                    "rotate(0deg)"
+            }
+
+        ],
+
+        {
+            duration: 900,
+
+            easing:
+                "cubic-bezier(.2,.8,.2,1)",
+
+            fill: "forwards"
+        }
+
+    );
+
+
+    /* Hit target */
+
+    setTimeout(() => {
+
+        target.classList.add(
+            "hit"
+        );
+
+
+        createHearts();
+
+
+        setTimeout(() => {
+
+            continueBtn.hidden =
+                false;
+
+
+            continueBtn.animate(
+
+                [
+                    {
+                        opacity: 0,
+
+                        transform:
+                            "translateY(15px)"
+                    },
+
+                    {
+                        opacity: 1,
+
+                        transform:
+                            "translateY(0)"
+                    }
+                ],
+
+                {
+                    duration: 600,
+
+                    fill: "both"
+                }
+
+            );
+
+        }, 600);
+
+    }, 850);
+
+}
+
+
+/* =====================================================
+   FLOATING HEART BURST
+===================================================== */
+
+function createHearts() {
+
+    const hearts = [
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "💘"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 25;
+        i++
+    ) {
+
+        const heart =
+            document.createElement("span");
+
+
+        heart.className =
+            "burst-heart";
+
+
+        heart.textContent =
+            hearts[
+                Math.floor(
+                    Math.random() *
+                    hearts.length
+                )
+            ];
+
+
+        heart.style.fontSize =
+            (
+                15 +
+                Math.random() * 20
+            ) + "px";
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        const x =
+            (
+                Math.random() - .5
+            ) * 500;
+
+
+        const y =
+            (
+                Math.random() - .5
+            ) * 400;
+
+
+        heart.animate(
+
+            [
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(.5)",
+
+                    opacity: 1
+                },
+
+                {
+                    transform:
+                        `translate(${x}px,${y}px) scale(1.5)`,
+
+                    opacity: 0
+                }
+            ],
+
+            {
+                duration: 1000,
+
+                easing: "ease-out"
+            }
+
+        );
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 1000);
+
+    }
+
+}
+
+
+/* =====================================================
+   GO TO VIDEO PAGE
+===================================================== */
+
+function goToVideos() {
+
+    showPage(
+        "videoPage"
+    );
+
+}
+
 </script>
 
 </body>
